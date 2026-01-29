@@ -13,7 +13,7 @@ int main(){
         cin >> S;
 
         int v = U * U  - (2 * A * S);
-        if(V * V <= v){
+        if(V * V >= v){
             cout << "YES" << endl;
         }
         else{
