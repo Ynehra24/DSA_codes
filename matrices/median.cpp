@@ -35,6 +35,26 @@ int matmedian(int r, int c, vector<vector<int>>& arr){
     return min;
 }
 
+int bruteforce(int r, int c, vector<vector<int>>& arr){
+    vector<int>ans;
+    for(int i = 0; i < r; i++){
+        for(int j = 0; j < c; j++){
+            ans.push_back(arr[i][j]);
+        }
+    }
+
+    int len = ans.size();
+    if(len % 2 == 0){
+        sort(ans.begin(), ans.end());
+        return (ans[len/2] + ans[(len/2) - 1])/2;
+    }
+    else{
+        sort(ans.begin(), ans.end());
+        return ans[len/2];
+    }
+}
+    
+
 int main(){
     int r, c;
     cout << "Please enter the values of r and c: " << endl;
@@ -45,7 +65,10 @@ int main(){
             cin >> arr[i][j];
         }
     }
-    int ans = matmedian(r, c, arr);
-    cout << "The median of the matrix is: " << ans << endl;
+    int ans1 = matmedian(r, c, arr);
+    cout << "The median of the matrix is: " << ans1 << endl;
+    int ans2 = bruteforce(r, c, arr);
+    cout << "The median of the matrix is: " << ans2 << endl;
+    
 
 }
